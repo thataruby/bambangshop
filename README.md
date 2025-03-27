@@ -87,3 +87,6 @@ This is the place for you to write reflections:
 3. Postman has been incredibly useful for testing API requests efficiently. It allows me to send requests, inspect responses, and automate testing without having to manually interact with the application. Features like saved collections, environment variables, and request chaining make it a great tool for team-based projects.
 
 #### Reflection Publisher-3
+1. In this tutorial, we are using the Push model of the Observer Pattern because the publisher sends notifications to all subscribers when an event happens, like when a product is created or deleted. The subscribers don’t request updates, they just receive them automatically.
+2. If we used the Pull model instead, subscribers would have to constantly check for updates instead of getting notified right away. The advantage of Pull is that it reduces unnecessary notifications, but the downside is that subscribers might miss updates if they don’t check often enough, and it adds more work for them to keep checking.
+3. Without multi-threading, the notification process would become slow and block the entire server whenever a product update happens. Each subscriber update would have to wait for the previous one to finish, making the system much less efficient, especially if there are many subscribers.
