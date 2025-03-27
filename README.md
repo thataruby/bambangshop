@@ -82,5 +82,8 @@ This is the place for you to write reflections:
 3. We still need DashMap because it provides built-in thread safety for multiple readers and writers. The Singleton pattern would ensure a single instance of the subscriber list, but it would still require manual synchronization (like using Mutex or RwLock) to be thread-safe. Since DashMap already handles this efficiently, using a Singleton alone wouldn’t be enough.
 
 #### Reflection Publisher-2
+1. Separating the Service and Repository from the Model keeps the code organized and easier to manage.  The Repository is responsible for data access, while the Service handles business logic, ensuring that each layer has a clear role. This makes the code easier to update, test, and reuse without breaking other parts of the system.
+2. If everything is done inside the Model, the code becomes more complex and harder to maintain. Since Program, Subscriber, and Notification interact with each other, merging storage, retrieval, and business logic into one layer would create tightly coupled code. This would make debugging, scaling, and extending features more difficult in the long run.
+3. Postman has been incredibly useful for testing API requests efficiently. It allows me to send requests, inspect responses, and automate testing without having to manually interact with the application. Features like saved collections, environment variables, and request chaining make it a great tool for team-based projects.
 
 #### Reflection Publisher-3
