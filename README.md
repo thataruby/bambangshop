@@ -77,6 +77,9 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. In the Observer pattern, a Subscriber is usually an interface (or trait) so different types can handle updates differently. But in BambangShop, we only have one type of Subscriber, so a single struct is enough. If we ever need multiple subscriber types (e.g., email and webhook subscribers), then using a trait would make sense.
+2. Since both id and url must be unique, using a Vec (list) isn’t ideal because checking for duplicates would be slow. DashMap is better because it allows fast lookups and prevents duplicates efficiently. It also helps when multiple threads access the data at the same time.
+3. We still need DashMap because it provides built-in thread safety for multiple readers and writers. The Singleton pattern would ensure a single instance of the subscriber list, but it would still require manual synchronization (like using Mutex or RwLock) to be thread-safe. Since DashMap already handles this efficiently, using a Singleton alone wouldn’t be enough.
 
 #### Reflection Publisher-2
 
